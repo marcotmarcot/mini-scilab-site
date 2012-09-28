@@ -1,0 +1,13 @@
+<h1>Programação de Computadores I
+<h2>Sistema de submissão automática de exercícios
+<form method="post" action=@{SubmitR}>
+      <input type=text name=student placeholder="Nome do aluno">
+      <br>
+      <select name=exercise>
+        <option value="E311">3.11
+        <option value="E314">3.14
+        <option value="E318">3.18
+      <br>
+      <textarea name=code placeholder="Código">
+      <br>
+      <input type=submit>
