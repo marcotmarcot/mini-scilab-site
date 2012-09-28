@@ -54,5 +54,5 @@ success student exercise
         <$> show
         <$> utcToZonedTime (TimeZone (-180) False "BRT")
         <$> getCurrentTime
-    T.appendFile ("/home/marcot/mini-scilab-site/" ++ exercise)
+    T.appendFile ("/home/marcot/public_html/mini-scilab-site/" ++ exercise)
       $ time <> ": " <> student <> "\n"
