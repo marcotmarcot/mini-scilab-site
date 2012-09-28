@@ -1,2 +1,2 @@
 <h1>Código submetido
-<p>Resultado: #{message}
+<h2>Resultado: #{message}

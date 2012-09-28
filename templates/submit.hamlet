@@ -1,6 +1,6 @@
 <h1>Programação de Computadores I
 <h2>Sistema de submissão automática de exercícios
-<form method="post" action=@{SubmitR}>
+<form method="post" action=@{HomeR}>
       <input type=text name=student placeholder="Nome do aluno">
       <br>
       <select name=exercise>

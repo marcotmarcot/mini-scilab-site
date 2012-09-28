@@ -23,55 +23,18 @@ import Scilab.Interpreter
 import Import
 import Exercises
 
--- This is a handler function for the GET request method on the HomeR
--- resource pattern. All of your resource patterns are defined in
--- config/routes
---
--- The majority of the code you will write in Yesod lives in these handler
--- functions. You can spread them across multiple files if you are so
--- inclined, or create a single monolithic file.
 getHomeR :: Handler RepHtml
-getHomeR = do
-    (formWidget, formEnctype) <- generateFormPost sampleForm
-    let submission = Nothing :: Maybe (FileInfo, Text)
-        handlerName = "getHomeR" :: Text
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "homepage")
+getHomeR = defaultLayout $(widgetFile "submit")
 
 postHomeR :: Handler RepHtml
-postHomeR = do
-    ((result, formWidget), formEnctype) <- runFormPost sampleForm
-    let handlerName = "postHomeR" :: Text
-        submission = case result of
-            FormSuccess res -> Just res
-            _ -> Nothing
-
-    defaultLayout $ do
-        aDomId <- lift newIdent
-        setTitle "Welcome To Yesod!"
-        $(widgetFile "homepage")
-
-sampleForm :: Form (FileInfo, Text)
-sampleForm = renderDivs $ (,)
-    <$> fileAFormReq "Choose a file"
-    <*> areq textField "What's on the file?" Nothing
-
-getSubmitR :: Handler RepHtml
-getSubmitR = defaultLayout $(widgetFile "submit")
-
-postSubmitR :: Handler RepHtml
-postSubmitR
+postHomeR
   = do
     student <- runInputPost $ ireq textField "student"
     exercise <- T.unpack <$> runInputPost (ireq textField "exercise")
     code <- runInputPost $ ireq textField "code"
     result <- liftIO $ checkExercises (io $ read exercise) code
     when result $ liftIO $ success student exercise
-    let
-      message = if result then "Correto!" else "Erro!" :: Text
-      -- doits = show doit
+    let message = if result then "Correto!" else "Erro!" :: Text
     defaultLayout $(widgetFile "posted")
 
 checkExercises :: ExerciseIO -> Text -> IO Bool
