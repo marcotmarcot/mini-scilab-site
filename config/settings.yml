@@ -15,5 +15,6 @@ Staging:
   <<: *defaults
 
 Production:
-  #approot: "http://www.example.com"
+  port: 8000
+  approot: "http://marcot.eti.br:8000"
   <<: *defaults
