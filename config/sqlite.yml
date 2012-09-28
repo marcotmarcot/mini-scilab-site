@@ -1,0 +1,20 @@
+Default: &defaults
+  database: mini-scilab-site.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: mini-scilab-site_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: mini-scilab-site_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: mini-scilab-site_production.sqlite3
+  poolsize: 100
+  <<: *defaults
