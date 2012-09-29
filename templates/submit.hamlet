@@ -8,6 +8,9 @@
         <option value="e314">3.14
         <option value="e318">3.18
         <option value="e319">3.19
+        <option value="e320">3.20
+        <option value="e321">3.21
+        <option value="e323">3.23
       <br>
       <textarea name=code placeholder="Código">
       <br>
