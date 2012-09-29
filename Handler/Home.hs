@@ -32,7 +32,7 @@ postHomeR
     student <- runInputPost $ ireq textField "student"
     exercise <- T.unpack <$> runInputPost (ireq textField "exercise")
     code <- runInputPost $ ireq textField "code"
-    result <- liftIO $ checkExercises (io $ read exercise) code
+    result <- liftIO $ checkExercises (io exercise) code
     when result $ liftIO $ success student exercise
     let message = if result then "Correto!" else "Erro!" :: Text
     defaultLayout $(widgetFile "posted")

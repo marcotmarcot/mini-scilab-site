@@ -4,9 +4,9 @@
       <input type=text name=student placeholder="Nome do aluno">
       <br>
       <select name=exercise>
-        <option value="E311">3.11
-        <option value="E314">3.14
-        <option value="E318">3.18
+        <option value="e311">3.11
+        <option value="e314">3.14
+        <option value="e318">3.18
       <br>
       <textarea name=code placeholder="Código">
       <br>
