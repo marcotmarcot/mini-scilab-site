@@ -2,7 +2,7 @@
 module Handler.Home where
 
 -- base
-import Control.Exception (evaluate)
+import qualified Control.Exception as E
 import System.Timeout (timeout)
 import Control.Monad (when)
 
@@ -40,11 +40,16 @@ postHomeR
 checkExercises :: ExerciseIO -> Text -> IO Bool
 checkExercises (rea_inp, exp_out) code
   = do
-    result <- timeout 100000 $ evaluate $ force $ interpret rea_inp code
+    result
+      <- timeout 100000
+        $ (E.try :: IO a -> IO (Either E.SomeException a))
+        $ E.evaluate
+        $ force
+        $ interpret rea_inp code
     return
       $ case result of
-        Nothing -> False
-        Just (lef_inp, rea_out) -> lef_inp == [] && rea_out == exp_out
+        Just (Right (lef_inp, rea_out)) -> lef_inp == [] && rea_out == exp_out
+        _ -> False
 
 success :: T.Text -> String -> IO ()
 success student exercise
