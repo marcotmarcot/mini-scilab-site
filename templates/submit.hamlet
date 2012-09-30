@@ -1,17 +1,99 @@
 <h1>Programação de Computadores I
 <h2>Sistema de submissão automática de exercícios
 <form method="post" action=@{HomeR}>
-      <input type=text name=student placeholder="Nome do aluno">
-      <br>
-      <select name=exercise>
-        <option value="e311">3.11
-        <option value="e314">3.14
-        <option value="e318">3.18
-        <option value="e319">3.19
-        <option value="e320">3.20
-        <option value="e321">3.21
-        <option value="e323">3.23
-      <br>
-      <textarea name=code placeholder="Código">
-      <br>
-      <input type=submit>
+  <div><input type=text name=student placeholder="Nome do aluno">
+  <div>
+    <select name=exercise onchange="showDiv(this.value);">
+      <option value="e311">3.11
+      <option value="e314">3.14
+      <option value="e318">3.18
+      <option value="e319">3.19
+      <option value="e320">3.20
+      <option value="e321">3.21
+      <option value="e323">3.23
+  <div id="e311">
+    Escreva um programa que receba dez números do usuário e armazene em um
+    vetor a metade de cada número. Após isso, o programa deve imprimir todos
+    os valores armazenados.
+  <div class="hidden" id="e314">
+    Escreva um programa que receba quinze números do usuário e armazene em
+    um vetor a raiz quadrada de cada número. Caso o valor digitado seja
+    menor que zero o número –1 deve ser atribuído ao elemento do vetor. Após
+    isso, o programa deve imprimir todos os valores armazenados.
+  <div class="hidden" id="e318">
+    Implementar um programa para calcular o sen(X). O valor de X deverá ser
+    digitado em graus. O valor do seno de X será calculado pela soma dos 15
+    primeiros termos da série a seguir:
+    <table>
+      <tr>
+        <td rowspan="3">sen(x)
+        <td rowspan="3">=
+        <td rowspan="3">x
+        <td rowspan="3">-
+        <td>x
+          <sup>3
+        <td rowspan="3">+
+        <td>x
+          <sup>5
+        <td rowspan="3">-
+        <td>x
+          <sup>7
+        <td rowspan="3">+
+        <td>x
+          <sup>9
+        <td rowspan="3">-
+        <td>x
+          <sup>11
+        <td rowspan="3">+ ...
+      <tr>
+        <td>―
+        <td>―
+        <td>―
+        <td>―
+        <td>―
+      <tr>
+        <td>3!
+        <td>5!
+        <td>7!
+        <td>9!
+        <td>11!
+    Esses termos devem ser armazenados em um vetor de reais.
+  <div class="hidden" id="e319">
+    Escreva um programa, que leia um conjunto de 50 fichas correspondente a
+    alunos e armazene-as em vetores, cada uma contendo, a altura e o código do
+    sexo de uma pessoa (código = 1 se for masculino e 2 se for feminino), e
+    calcule e imprima:
+    <ul>
+      <li>A maior e a menor altura da turma;
+      <li>As mulheres com altura acima da média da altura das mulheres;
+      <li>As pessoas com altura abaixo da média da turma.
+  <div class="hidden" id="e320">
+    Construa um programa para calcular a média de valores PARES e ÍMPARES, de 50
+    números que serão digitados pelo usuário. Ao final o programa deve mostrar
+    estas duas médias. O programa deve mostrar também o maior número PAR
+    digitado e o menor número ÍMPAR digitado. Esses dados devem ser armazenados
+    em um vetor. Além disso, devem ser impressos os valores PARES maiores que a
+    média PAR, bem como os valores ÍMPARES menor que a média ÍMPAR.
+  <div class="hidden" id="e321">
+    Em uma cidade do interior, sabe-se que, de janeiro a abril de 1976 (121
+    dias), não ocorreu temperatura inferior a 15oC nem superior a 40oC. As
+    temperaturas verificadas em cada dia estão disponíveis em uma unidade de
+    entrada de dados. Fazer um programa que calcule e imprima:
+    <ul>
+      <li>A menor temperatura ocorrida;
+      <li>A maior temperatura ocorrida;
+      <li>A temperatura média;
+      <li>O número de dias nos quais a temperatura foi inferior à temperatura
+        média.
+  <div class="hidden" id="e323">
+    Fazer um programa que:
+    <ol type="a">
+      <li>Leia o valor inteiro de n (n ≤ 1000) e os n valores de uma variável
+      composta A de valores numéricos, ordenados de forma crescente;
+      <li>Determine e imprima, para cada número que se repete no conjunto, a
+        quantidade de vezes em que ele aparece repetido;
+      <li>Elimine os elementos repetidos, formando um novo conjunto;
+      <li>Imprima o conjunto obtido no item c.
+  <div>
+    <textarea name=code placeholder="Código">
+  <div><input type=submit>

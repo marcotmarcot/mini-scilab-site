@@ -3,3 +3,13 @@ textarea {
     height: 300px;
     font-family: Courier New, Courier;
 }
+.hidden {
+    display: none;
+}
+td {
+    text-align: center;
+    padding-left: 4px;
+}
+div {
+    margin: 10px;
+}
