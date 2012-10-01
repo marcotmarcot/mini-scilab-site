@@ -42,14 +42,23 @@ checkExercises (rea_inp, exp_out) code
   = do
     result
       <- timeout 100000
-        $ (E.try :: IO a -> IO (Either E.SomeException a))
-        $ E.evaluate
-        $ force
-        $ interpret rea_inp code
-    return
-      $ case result of
-        Just (Right (lef_inp, rea_out)) -> lef_inp == [] && rea_out == exp_out
-        _ -> False
+          (E.evaluate
+            $ force
+            $ interpret rea_inp code)
+        `E.catch` \e
+          -> T.appendFile
+              "/home/marcot/public_html/mini-scilab-site/log"
+              (T.unlines [code, T.pack $ show (e :: E.SomeException)])
+            >> return Nothing
+    case result of
+      Just (lef_inp, rea_out)
+        -> if lef_inp == [] && rea_out == exp_out
+           then return True
+           else T.appendFile
+              "/home/marcot/public_html/mini-scilab-site/log"
+              (T.unlines [code, T.pack $ show (lef_inp, rea_out, exp_out)])
+              >> return False
+      _ -> return False
 
 success :: T.Text -> String -> IO ()
 success student exercise

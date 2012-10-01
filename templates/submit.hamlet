@@ -22,7 +22,7 @@
     isso, o programa deve imprimir todos os valores armazenados.
   <div class="hidden" id="e318">
     Implementar um programa para calcular o sen(X). O valor de X deverá ser
-    digitado em graus. O valor do seno de X será calculado pela soma dos 15
+    digitado em radianos. O valor do seno de X será calculado pela soma dos 15
     primeiros termos da série a seguir:
     <table>
       <tr>
