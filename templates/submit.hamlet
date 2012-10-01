@@ -4,13 +4,13 @@
   <div><input type=text name=student placeholder="Nome do aluno">
   <div>
     <select name=exercise onchange="showDiv(this.value);">
-      <option value="e311">3.11
-      <option value="e314">3.14
-      <option value="e318">3.18
-      <option value="e319">3.19
-      <option value="e320">3.20
-      <option value="e321">3.21
-      <option value="e323">3.23
+      <option value="e311">4.11
+      <option value="e314">4.14
+      <option value="e318">4.18
+      <option value="e319">4.19
+      <option value="e320">4.20
+      <option value="e321">4.21
+      <option value="e323">4.23
   <div id="e311">
     Escreva um programa que receba dez números do usuário e armazene em um
     vetor a metade de cada número. Após isso, o programa deve imprimir todos
